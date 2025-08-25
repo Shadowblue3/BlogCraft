@@ -21,7 +21,7 @@ body{
     overflow-x: hidden;
 }
 .post{
-    /* border: 2px solid #f56a6a; */
+    border: 0px solid #f56a6a;
     margin: 30px;
     border-radius: 20px;
     padding: 20px;
