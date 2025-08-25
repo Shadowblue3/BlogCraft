@@ -6,6 +6,12 @@ const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
 const sharp = require('sharp');
 const session = require('express-session');
+let MongoStore;
+try {
+  MongoStore = require('connect-mongo');
+} catch (e) {
+  console.warn('connect-mongo not installed. Using in-memory session store. Sessions may be lost on serverless hosts.');
+}
 const bcrypt = require('bcrypt');
 const postModel = require("./models/posts")
 const userModel = require("./models/user")
@@ -54,15 +60,26 @@ app.use(bodyParser.json())
 app.use(express.json())
 
 // Sessions: per-user login state
+app.set('trust proxy', 1);
 app.use(session({
   secret: process.env.SESSION_SECRET || 'dev_secret',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false }
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax'
+  },
+  store: (MongoStore && process.env.MONGO_URI) ? MongoStore.create({
+    mongoUrl: process.env.MONGO_URI,
+    collectionName: 'sessions',
+    ttl: 14 * 24 * 60 * 60,
+    touchAfter: 24 * 3600
+  }) : undefined
 }))
 // Make userEmail available to all views as a default
 app.use((req, res, next) => {
   res.locals.userEmail = (req.session && req.session.email) ? req.session.email : "";
+  res.locals.userName = (req.session && req.session.username) ? req.session.username : "";
   next();
 })
 
