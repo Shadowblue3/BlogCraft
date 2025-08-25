@@ -42,12 +42,11 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-const postsPath = path.join(__dirname, "posts.json");
-const userPath = path.join(__dirname, "user.json");
 
 const app = express()
 const port = 3000
 
+app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -67,7 +66,7 @@ app.use((req, res, next) => {
   next();
 })
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (req, res) => {
   const postsData = await postModel.find().lean()
