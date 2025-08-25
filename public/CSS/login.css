@@ -1,0 +1,562 @@
+@import url('https://fonts.googleapis.com/css2?family=Chela+One&family=Dancing+Script:wght@400..700&family=Edu+NSW+ACT+Cursive:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shadows+Into+Light&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 25px 80px rgba(245, 106, 106, 0.4);
+    overflow: hidden;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid #e1e5e9;
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.header {
+    background: linear-gradient(135deg, #f56a6a, #e55555);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    font-family: "Chela One", system-ui;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 15px,
+            rgba(255, 255, 255, 0.05) 15px,
+            rgba(255, 255, 255, 0.05) 30px);
+    animation: headerFloat 20s linear infinite;
+}
+
+@keyframes headerFloat {
+    0% {
+        transform: translateX(-30px) translateY(-30px);
+    }
+
+    100% {
+        transform: translateX(30px) translateY(30px);
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo img {
+    width: 35px;
+    height: 35px;
+    filter: brightness(0) invert(1);
+}
+
+.header h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.header p {
+    font-size: 1em;
+    opacity: 0.9;
+    margin-top: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.form-container {
+    padding: 40px 30px;
+}
+
+.welcome-back {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.welcome-back h2 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 8px;
+}
+
+.welcome-back p {
+    color: #666;
+    font-size: 1em;
+}
+
+.error-message {
+    background: #fee;
+    color: #c33;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #fcc;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-container {
+    position: relative;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #f56a6a;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(245, 106, 106, 0.1);
+    transform: translateY(-2px);
+}
+
+.input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 18px;
+}
+
+.password-toggle {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: #f56a6a;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember-me input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.remember-me label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.forgot-password {
+    margin: 0;
+}
+
+.forgot-password a {
+    color: #f56a6a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #e55555;
+    text-decoration: underline;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #f56a6a, #e55555);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 25px rgba(245, 106, 106, 0.4);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(245, 106, 106, 0.5);
+}
+
+.submit-btn:active {
+    transform: translateY(-1px);
+}
+
+.divider {
+    margin: 30px 0;
+    text-align: center;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e1e5e9;
+}
+
+.divider span {
+    background: white;
+    padding: 0 20px;
+    color: #999;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.social-login {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.social-btn:hover {
+    border-color: #f56a6a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 106, 106, 0.2);
+}
+
+.signup-link {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #f56a6a;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Media Queries */
+
+/* Tablet Styles (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    .container {
+        max-width: 400px;
+    }
+    
+    .header {
+        padding: 35px 25px;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .form-container {
+        padding: 35px 25px;
+    }
+    
+    .welcome-back h2 {
+        font-size: 1.6em;
+    }
+}
+
+/* Mobile Styles (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .container {
+        max-width: 100%;
+        margin: 0;
+        border-radius: 20px;
+    }
+    
+    .header {
+        padding: 30px 20px;
+    }
+    
+    .header h1 {
+        font-size: 1.8em;
+    }
+    
+    .header p {
+        font-size: 0.9em;
+    }
+    
+    .logo img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .form-container {
+        padding: 30px 20px;
+    }
+    
+    .welcome-back h2 {
+        font-size: 1.5em;
+    }
+    
+    .welcome-back p {
+        font-size: 0.9em;
+    }
+    
+    .form-group input {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .submit-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .social-login {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .social-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* Small Mobile Styles (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        margin: 5px;
+        border-radius: 15px;
+    }
+    
+    .header {
+        padding: 25px 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .header p {
+        font-size: 0.8em;
+    }
+    
+    .logo img {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .form-container {
+        padding: 25px 15px;
+    }
+    
+    .welcome-back {
+        margin-bottom: 25px;
+    }
+    
+    .welcome-back h2 {
+        font-size: 1.3em;
+    }
+    
+    .welcome-back p {
+        font-size: 0.8em;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+    
+    .form-group input {
+        padding: 10px 12px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+    
+    .input-icon {
+        right: 12px;
+        font-size: 16px;
+    }
+    
+    .submit-btn {
+        padding: 10px;
+        font-size: 13px;
+        border-radius: 10px;
+    }
+    
+    .divider {
+        margin: 25px 0;
+    }
+    
+    .divider span {
+        font-size: 12px;
+        padding: 0 15px;
+    }
+    
+    .social-btn {
+        padding: 8px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    
+    .signup-link {
+        font-size: 12px;
+    }
+    
+    .remember-me label,
+    .forgot-password a {
+        font-size: 12px;
+    }
+}
+
+/* Extra Small Mobile Styles (max-width: 320px) */
+@media screen and (max-width: 320px) {
+    .container {
+        margin: 2px;
+        border-radius: 12px;
+    }
+    
+    .header {
+        padding: 20px 10px;
+    }
+    
+    .header h1 {
+        font-size: 1.4em;
+    }
+    
+    .form-container {
+        padding: 20px 10px;
+    }
+    
+    .welcome-back h2 {
+        font-size: 1.2em;
+    }
+    
+    .form-group input {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    
+    .submit-btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+    
+    .social-btn {
+        padding: 6px;
+        font-size: 11px;
+    }
+}

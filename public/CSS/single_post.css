@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.toCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    overflow-x: hidden;
+}
+.post{
+    border: 2px solid #f56a6a;
+    margin: 30px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.post h1{
+    font-family: "Comfortaa", sans-serif;
+    font-size: 42px;
+    font-weight: bolder;
+    padding: 10px;
+    text-align: center;
+    word-break: break-word;
+}
+
+.seperator{
+    margin-top: 20px;
+    border: 2px solid #f56a6a;
+    border-radius: 20px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.content{
+    width: 100%;
+    text-align: justify;
+}
+
+.content img{
+    float: left;
+    max-width: 100%;
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+    object-fit: cover;
+    margin: 0 20px 20px 0;
+}
+
+.content img:hover{
+    transform: scale(1.06);
+}
+
+.content p{
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-size: 22px;
+  line-height: 1.6;
+  margin: 0;
+  overflow: visible;
+  max-height: none;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  text-align: justify;
+}
+
+.foot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 68vw;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.details h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-wrap: anywhere;
+}
+
+.backbtn{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.viewContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.views{
+    /* border: 2px solid #f56a6a; */
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: grey;
+    font-weight: 900;
+}
+
+.backbtn button{
+    background-color: #f56a6a;
+    color: white;
+    padding: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 23px;
+    font-weight: bolder;
+    border: 0px solid black;
+    border-radius: 20px;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.backbtn button:hover{
+    transform: scale(1.1);
+}
+
+/* Responsive Media Queries */
+
+/* Tablet Styles (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    .post {
+        margin: 20px;
+        padding: 15px;
+    }
+    
+    .post h1 {
+        font-size: 36px;
+    }
+    
+    .content img {
+        width: 350px;
+        margin: 0 15px 15px 0;
+    }
+    
+    .content p {
+        font-size: 20px;
+    }
+    
+    .foot {
+        width: 80vw;
+    }
+    
+    .backbtn button {
+        font-size: 20px;
+        padding: 12px;
+    }
+}
+
+/* Mobile Styles (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .toCenter {
+        padding: 10px;
+        min-height: auto;
+    }
+    
+    .post {
+        margin: 10px;
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    .post h1 {
+        font-size: 28px;
+        padding: 5px;
+    }
+    
+    .seperator {
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .content img {
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .content p {
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: left;
+    }
+    
+    .foot {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .details {
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .details h3 {
+        font-size: 16px;
+        text-align: center;
+    }
+    
+    .backbtn {
+        gap: 15px;
+    }
+    
+    .backbtn button {
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+    
+    .viewContainer {
+        justify-content: center;
+        margin-top: 15px;
+    }
+    
+    .views {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Small Mobile Styles (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .toCenter {
+        padding: 5px;
+    }
+    
+    .post {
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    .post h1 {
+        font-size: 24px;
+        padding: 5px;
+    }
+    
+    .seperator {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .content img {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto 15px auto;
+    }
+    
+    .content p {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+    
+    .details h3 {
+        font-size: 14px;
+    }
+    
+    .backbtn button {
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 15px;
+    }
+    
+    .views {
+        font-size: 12px;
+        padding: 6px;
+    }
+}
+
+/* Extra Small Mobile Styles (max-width: 320px) */
+@media screen and (max-width: 320px) {
+    .post h1 {
+        font-size: 20px;
+    }
+    
+    .content img {
+        max-width: 250px;
+    }
+    
+    .content p {
+        font-size: 14px;
+    }
+    
+    .details h3 {
+        font-size: 12px;
+    }
+    
+    .backbtn button {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+}

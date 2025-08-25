@@ -1,0 +1,15 @@
+.flex{
+    display: flex;
+}
+.justify-center{
+    justify-content: center;
+}
+.item-center{
+    align-items: center;
+}
+.border{
+    border: 2px solid black;
+}
+.flex-col{
+    flex-direction: column;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Blogs</title>
+    <link rel="stylesheet" href="/CSS/blog.css">
+    <link rel="stylesheet" href="/CSS/utility.css">
+    <link rel="icon" type="image/png" href="/image/favicon.png">
+</head>
+
+<body>
+    <nav class="navbar flex">
+        <div class="logo flex item-center">
+            <img width="30px" src="image/book.svg" alt="">
+            <h1>BlogCraft</h1>
+        </div>
+        <div class="navigation flex">
+            <div class="navLinks">
+                <a class="flex flex-col justify-center item-center" href="/">
+                    <span>Home</span>
+                    <div class="l"></div>
+                </a>
+                <a class="flex flex-col justify-center item-center" href="/blogs">
+                    <span>Blogs</span>
+                    <div class="l"></div>
+                </a>
+                <% if(userEmail != ""){ %>
+                    <a class="flex flex-col justify-center item-center" href="/<%= userName %>/dashboard">
+                        <span>Dashboard</span>
+                        <div class="l"></div>
+                    </a>
+                <% } %>
+            </div>
+            <div class="inbtns flex">
+                <a href="/<%= userName %>/create_post">
+                    <button class="lin">+ Create Post</button>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main class="blogs">
+        <div class="head">
+            <h1>Blogs</h1>
+        </div>
+        <div class="blogs-header">
+            <div class="category-filter">
+                <label for="categorySelect">Filter by Category:</label>
+                <select id="categorySelect" onchange="filterByCategory()">
+                    <option value="all" <%= selectedCategory === 'all' ? 'selected' : '' %>>All Categories</option>
+                    <% categories.forEach(category => { %>
+                        <option value="<%= category %>" <%= selectedCategory === category ? 'selected' : '' %>>
+                            <%= category.charAt(0).toUpperCase() + category.slice(1) %>
+                        </option>
+                    <% }); %>
+                </select>
+            </div>
+        </div>
+        
+        <div class="blog-posts">
+            <% if (postsData.length === 0) { %>
+                <div class="no-posts">
+                    <h3>No posts found for this category</h3>
+                    <p>Try selecting a different category or check back later for new content.</p>
+                </div>
+            <% } else { %>
+                <% postsData.forEach(post => { %>
+                <div class="card">
+                    <img src="<%= post.imageUrl %>" alt="<%= post.title %>" srcset="">
+                    <div class="card-content">
+                        <div class="category-badge">
+                            <%= post.category ? post.category.charAt(0).toUpperCase() + post.category.slice(1) : 'Uncategorized' %>
+                        </div>
+                        <h2><%= post.title %></h2>
+                        <p><%= post.content.slice(0, Math.floor(post.content.length*0.1)) + "..." %></p>
+                        <div class="card-footer">
+                            <span class="author">By <%= post.Author || 'Anonymous' %></span>
+                            <a href="/blogs/<%= post.id %>"><button class="read-more">Read More</button></a>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+            <% } %>
+        </div>
+    </main>
+
+    <script>
+        function filterByCategory() {
+            const select = document.getElementById('categorySelect');
+            const selectedCategory = select.value;
+            const currentUrl = new URL(window.location);
+            
+            if (selectedCategory === 'all') {
+                currentUrl.searchParams.delete('category');
+            } else {
+                currentUrl.searchParams.set('category', selectedCategory);
+            }
+            
+            window.location.href = currentUrl.toString();
+        }
+    </script>
+    <footer class="footer">
+        <div class="footer-content flex">
+            <div class="footer-logo">
+                <h2>BlogCraft</h2>
+                <p>A modern blogging platform where writers can share stories, express ideas, and connect with readers.
+                    From personal reflections to professional insights, our site makes publishing simple, engaging, and
+                    impactful. Discover fresh perspectives, explore popular posts, and join a community built around
+                    creativity and meaningful conversations.”</p>
+            </div>
+
+            <div class="footer-links">
+                <h1>Quick Links</h1>
+                <div class="links">
+                    <a href="#">Home</a>
+                    <a href="#">Blogs</a>
+                    <a href="#">Dashboard</a>
+                </div>
+                <div class="footer-bottom">
+                </div>
+            </div>
+
+            <div class="footer-social">
+                <h1>Contact Us on</h1>
+                <a href="#">
+                    <img src="image/instagram.svg" alt="" srcset="">
+                    <h2>Instagram</h2>
+                </a>
+                <a href="#">
+                    <img src="image/github.svg" alt="" srcset="">
+                    <h2>GitHub</h2>
+                </a>
+                <a href="#">
+                    <img src="image/Twitter-X.svg" alt="" srcset="">
+                    <h2>Twitter</h2>
+                </a>
+                <a href="#">
+                    <img src="image/facebook.svg" alt="" srcset="">
+                    <h2>Facebook</h2>
+                </a>
+            </div>
+        </div>
+        <p class="rights">© 2025 BlogCraft. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

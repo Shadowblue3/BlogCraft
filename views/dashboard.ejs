@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/CSS/utility.css">
+    <link rel="stylesheet" href="/CSS/dashboard.css">
+    <link rel="icon" type="image/png" href="/image/favicon.png">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo flex item-center">
+            <img width="30px" src="/image/book.svg" alt="">
+            <h1>BlogCraft</h1>
+        </div>
+
+        <div class="navLinks">
+            <a class="flex flex-col justify-center item-center" href="/">
+                <span>Home</span>
+                <div class="l"></div>
+            </a>
+            <a class="flex flex-col justify-center item-center" href="/blogs">
+                <span>Blogs</span>
+                <div class="l"></div>
+            </a>
+            <span class="userName">
+                <img width="30px" src="/image/user.svg" alt="" srcset="">
+                <h3>
+                    <%= userName %>
+                </h3>
+            </span>
+        </div>
+    </div>
+    <div class="dashBoard-head">
+        <h1>Dashboard</h1>
+    </div>
+    <main class="dashboard-content">
+        <div class="boxes">
+            <div class="total-posts">
+                <div class="tpbox">
+                    <h3>Total Posts</h3>
+                    <h2>
+                        <%= postArr.length %>
+                    </h2>
+                </div>
+                <img width="50px" src="/image/posts.svg" alt="" srcset="">
+            </div>
+            <div class="total-posts">
+                <div class="tpbox">
+                    <h3>Total views</h3>
+                    <h2>
+                        <%= totalViews %>
+                    </h2>
+                </div>
+                <img width="50px" src="/image/view.svg" alt="" srcset="">
+            </div>
+        </div>
+        <div class="your-posts">
+            <h1>Your posts</h1>
+            <div class="posts">
+                <% postArr.forEach(e=> { %>
+                    <div class="post-card">
+                        <div class="post-info">
+                            <h2 class="post-name">
+                                <%= e.title %>
+                            </h2>
+                            <p>Views <%= e.views %>
+                            </p>
+                        </div>
+
+                        <form action="" method="post">
+                                <div class="post-btns">
+                                <button class="change">
+                                    <img width="40px" src="/image/edit.svg" alt="">
+                                    <p>Edit</p>
+                                </button>
+                            
+                            
+                            <a href = "/blogs/<%= e._id %>" class="change-a">
+                                <img width="40px" src="/image/view.svg" alt="">
+                                <p>View</p>
+                            </a>
+
+                            <button type="submit" name="action" value=<%= `delete,${e._id}`%> class="change">
+                                <img width="40px" src="/image/delete.svg" alt="">
+                                <p>Delete</p>
+                            </button>
+                        </div>
+                            </form>
+                    </div>
+                    <% }) %>
+
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

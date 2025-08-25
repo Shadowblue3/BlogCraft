@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogCraft - Sign Up</title>
+    <link rel="stylesheet" href="/CSS/signup.css">
+    <link rel="icon" type="image/png" href="/image/favicon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <h1>BlogCraft</h1>
+            </div>
+            <p>Start your blogging journey today</p>
+        </div>
+        
+        <div class="form-container">
+            <div class="welcome-message">
+                <h2>Create Account</h2>
+                <p>Join thousands of writers sharing their stories</p>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+
+            <form id="signupForm" method = "POST">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <div class="input-container">
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                        <span class="input-icon">👤</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-container">
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        <span class="input-icon">📧</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-container">
+                        <input type="password" id="password" name="password" placeholder="Create a secure password" required>
+                        <span class="input-icon password-toggle" onclick="togglePassword('password')">👁️</span>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+                        <span id="strengthText">Password strength</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-container">
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                        <span class="input-icon password-toggle" onclick="togglePassword('confirmPassword')">👁️</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">Create Your Account</button>
+            </form>
+
+            <div class="divider">
+                <span>or sign up with</span>
+            </div>
+
+            <div class="social-login">
+                <button class="social-btn" onclick="socialLogin('google')">
+                    <span>🔍</span> Google
+                </button>
+                <button class="social-btn" onclick="socialLogin('github')">
+                    <span>🐙</span> GitHub
+                </button>
+            </div>
+
+            <div class="terms">
+                By creating an account, you agree to our 
+                <a href="#" onclick="showTerms()">Terms of Service</a> and 
+                <a href="#" onclick="showPrivacy()">Privacy Policy</a>
+            </div>
+
+            <div class="login-link">
+                Already have an account? <a href="login.html">Sign In</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/signup.js"></script>
+</body>
+</html>

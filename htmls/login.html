@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogCraft - Login & Sign Up</title>
+    <link rel="stylesheet" href="CSS/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="image/book copy.svg" alt="" srcset="">
+                <h1>BlogCraft</h1>
+            </div>
+            <p>Your creative writing platform</p>
+        </div>
+        
+        <div class="form-container">
+            <div class="toggle-container">
+                <div class="toggle-slider" id="toggleSlider"></div>
+                <button class="toggle-btn active" id="loginBtn">Login</button>
+                <button class="toggle-btn" id="signupBtn">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <div class="form-section active" id="loginForm">
+                <form id="loginFormElement">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <div class="input-container">
+                            <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+                            <span class="input-icon">📧</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-container">
+                            <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                            <span class="input-icon password-toggle" onclick="togglePassword('loginPassword')">👁️</span>
+                        </div>
+                    </div>
+
+                    <div class="forgot-password">
+                        <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Login to BlogCraft</button>
+                </form>
+
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+
+                <div class="social-login">
+                    <button class="social-btn" onclick="socialLogin('google')">
+                        <span>
+                            <img width="20px" src="image/google.svg" alt="" srcset="">
+                        </span> Google
+                    </button>
+                    <button class="social-btn" onclick="socialLogin('github')">
+                        <span>
+                            <img width = "20px" src="image/github copy.svg" alt="" srcset="">
+                        </span> GitHub
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div class="form-section" id="signupForm">
+                <form id="signupFormElement">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <div class="input-container">
+                            <input type="text" id="signupName" name="fullName" placeholder="Enter your full name" required>
+                            <span class="input-icon">👤</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <div class="input-container">
+                            <input type="email" id="signupEmail" name="email" placeholder="Enter your email" required>
+                            <span class="input-icon">📧</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <div class="input-container">
+                            <input type="password" id="signupPassword" name="password" placeholder="Create a password" required>
+                            <span class="input-icon password-toggle" onclick="togglePassword('signupPassword')">👁️</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-container">
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                            <span class="input-icon password-toggle" onclick="togglePassword('confirmPassword')">👁️</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Create Account</button>
+                </form>
+
+                <div class="divider">
+                    <span>or sign up with</span>
+                </div>
+
+                <div class="social-login">
+                    <button class="social-btn" onclick="socialLogin('google')">
+                        <span>
+                            <img width="20px" src="image/google.svg" alt="" srcset="">
+                        </span> Google
+                    </button>
+                    <button class="social-btn" onclick="socialLogin('github')">
+                        <span>
+                            <img width = "20px" src="image/github copy.svg" alt="" srcset="">
+                        </span> GitHub
+                    </button>
+                </div>
+
+                <div class="terms">
+                    By creating an account, you agree to our 
+                    <a href="#">Terms of Service</a> and 
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="JS/login.js"></script>
+</body>
+</html>
