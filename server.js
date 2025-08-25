@@ -1,6 +1,5 @@
 const express = require("express")
 const bodyParser = require('body-parser')
-const posts = require("./posts.json")
 const fs = require("fs");
 const path = require("path");
 const multer = require('multer');
@@ -68,28 +67,6 @@ app.use((req, res, next) => {
   next();
 })
 
-let user = []
-// Function to update JSON file
-function updateJSONFile(newData, filePath) {
-  try {
-    // Read existing file
-    const fileData = fs.readFileSync(filePath, "utf-8");
-    // Parse JSON
-    let jsonArr = JSON.parse(fileData);
-
-    // Add new data (push into array)
-    jsonArr.push(newData);
-
-    // Write back updated JSON
-    fs.writeFileSync(filePath, JSON.stringify(jsonArr, null, 2));
-
-    console.log("✅ JSON file updated successfully!");
-  } catch (err) {
-    console.error("❌ Error updating JSON file:", err);
-  }
-}
-
-
 app.use(express.static("public"));
 
 app.get('/', async (req, res) => {
@@ -106,7 +83,6 @@ app.get('/', async (req, res) => {
 
 app.get('/:user/dashboard', async (req, res) => {
   try {
-    console.log(req.session.username)
     
     // Fetch posts for the current user from MongoDB
     const userEmail = req.session.email;
@@ -130,12 +106,8 @@ app.get('/:user/dashboard', async (req, res) => {
     });
   }
 })
-
 app.post('/:user/dashboard', async (req, res)=>{
-  console.log(req.body.action)
-  console.log(req.body.action.split(",")[1])
   const changeId = req.body.action.split(",")[1]
-  console.log(changeId)
   if(req.body.action.split(",")[0] === "delete"){
     await postModel.deleteOne({ _id: changeId });
   }
@@ -259,7 +231,7 @@ app.post('/:user/create-post', upload.single('image'), async (req, res) => {
       newPost.imagePublicId = result.public_id;
       newPost.userEmail = (req.session && req.session.email) ? req.session.email : '';
       newPost.Author = req.session.username;
-      newPost.views = 1
+      newPost.views = 0
 
       // Cleanup temp files (original and processed)
       fs.unlink(req.file.path, (err) => {
@@ -272,9 +244,10 @@ app.post('/:user/create-post', upload.single('image'), async (req, res) => {
       console.warn('No image file received in request.');
     }
 
-    await postModel.create(newPost);
+    const createdPost = await postModel.create(newPost);
     console.log('✅ Blog post saved to MongoDB successfully!');
-    res.send('Blog post received and saved to database!');
+    // Redirect to the newly created blog post
+    res.redirect(`/blogs/${createdPost._id}`);
   } catch (err) {
     console.error('Error creating post:', err);
     res.status(500).send('Failed to create post: ' + (err && err.message ? err.message : 'unknown error'));
@@ -287,7 +260,7 @@ app.get('/login', (req, res) => {
 
 app.post('/login', async (req, res) => {
   try {
-    console.log('Login attempt:', req.body)
+    console.log('Login attempt')
     let passwd = req.body.password
     let email = req.body.email
     const userData = await userModel.find({email: email})
@@ -298,8 +271,8 @@ app.post('/login', async (req, res) => {
       return res.render('login', { error: "User doesn't exist. Please check your email or sign up." })
     }
     else{
-      console.log('Stored password:', userData[0].password)
-      console.log('Provided password:', passwd)
+      // console.log('Stored password:', userData[0].password)
+      // console.log('Provided password:', passwd)
       
       // Check if password is already hashed (starts with $2b$ for bcrypt)
       if (userData[0].password.startsWith('$2b$')) {
@@ -367,7 +340,6 @@ app.get('/signup', (req, res) => {
 
 app.post('/signup', async (req, res) => {
   try {
-    console.log(req.body)
     const { fullName, email, password, confirmPassword } = req.body
 
     // Basic server-side validation
