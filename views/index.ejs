@@ -47,7 +47,10 @@
     </nav>
     <main class="mainContent">
         <div class="mainHeader flex flex-col justify-center item-center">
-            <div class="head flex flex-col item-center">
+            <video id="bgVideo" class="bg-video" src="/image/Writing_Video.mp4" autoplay playsinline loop preload="auto"></video>
+            <div class="bg-overlay"></div>
+            <button id="playVideoBtn" class="play-video-btn" type="button">Play Video</button>
+                        <div class="head flex flex-col item-center">
                 <h1>Thoughts that spark change</h1>
                 <h2>Discover Ideas, Share Stories</h2>
                 <h3 class="lettering"></h3>
@@ -120,6 +123,23 @@
     </footer>
 
     <script src="JS/script.js"></script>
+    <script>
+      (function(){
+        const v = document.getElementById('bgVideo');
+        const btn = document.getElementById('playVideoBtn');
+        if (!v || !btn) return;
+        btn.addEventListener('click', async () => {
+          try {
+            v.muted = false;
+            v.volume = 1.0;
+            await v.play();
+            btn.style.display = 'none';
+          } catch (e) {
+            console.error('Video play failed:', e);
+          }
+        });
+      })();
+    </script>
 </body>
 
 </html>

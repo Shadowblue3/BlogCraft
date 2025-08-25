@@ -125,7 +125,20 @@ app.get('/:user/dashboard', async (req, res) => {
 app.post('/:user/dashboard', async (req, res)=>{
   const changeId = req.body.action.split(",")[1]
   if(req.body.action.split(",")[0] === "delete"){
-    await postModel.deleteOne({ _id: changeId });
+    try {
+      const postToDelete = await postModel.findById(changeId).lean();
+      if (postToDelete && postToDelete.imagePublicId) {
+        try {
+          const cldResult = await cloudinary.uploader.destroy(postToDelete.imagePublicId);
+          console.log('Cloudinary asset deleted:', cldResult);
+        } catch (cldErr) {
+          console.error('Failed to delete Cloudinary asset:', cldErr);
+        }
+      }
+      await postModel.deleteOne({ _id: changeId });
+    } catch (delErr) {
+      console.error('Error deleting post:', delErr);
+    }
   }
   try {
     

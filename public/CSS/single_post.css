@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+body{
+    background: #000 url("/image/single-post.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
 .toCenter{
     display: flex;
     justify-content: center;
@@ -16,7 +21,7 @@
     overflow-x: hidden;
 }
 .post{
-    border: 2px solid #f56a6a;
+    /* border: 2px solid #f56a6a; */
     margin: 30px;
     border-radius: 20px;
     padding: 20px;
@@ -26,6 +31,7 @@
     align-items: center;
     width: 100%;
     max-width: 1100px;
+    background-color: hsla(0, 0%, 0%, 0.6);
 }
 
 .post h1{
@@ -35,11 +41,12 @@
     padding: 10px;
     text-align: center;
     word-break: break-word;
+    color: #fff;
 }
 
 .seperator{
     margin-top: 20px;
-    border: 2px solid #f56a6a;
+    border: 2px solid #ffffff;
     border-radius: 20px;
     width: 100%;
     margin-bottom: 40px;
@@ -48,12 +55,13 @@
 .content{
     width: 100%;
     text-align: justify;
+    color: #fff;
 }
 
 .content img{
     float: left;
     max-width: 100%;
-    width: 400px;
+    /* width: 400px; */
     height: auto;
     border-radius: 10px;
     transition: transform 0.2s ease-in-out;
@@ -66,7 +74,7 @@
 }
 
 .content p{
-  font-family: "Caveat", cursive;
+  font-family: 'Times New Roman', Times, serif;
   font-optical-sizing: auto;
   font-size: 22px;
   line-height: 1.6;
@@ -76,6 +84,21 @@
   word-break: break-word;
   overflow-wrap: anywhere;
   text-align: justify;
+}
+
+.quil {
+  display: inline-block;
+  animation: swingAnim 1s infinite alternate ease-in-out;
+}
+
+/* Keyframes for rotation */
+@keyframes swingAnim {
+  0% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
 }
 
 .foot{
@@ -90,6 +113,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    color: #fff;
 }
 
 .details h3{
@@ -106,6 +130,7 @@
 .viewContainer{
     display: flex;
     justify-content: flex-end;
+    gap: 50px;
 }
 
 .views{
@@ -113,25 +138,26 @@
     padding: 10px;
     border-radius: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: grey;
+    color: rgb(212, 212, 212);
     font-weight: 900;
 }
 
 .backbtn button{
-    background-color: #f56a6a;
+    background-color: hsla(0, 0%, 0%, 0.5);
     color: white;
     padding: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 23px;
     font-weight: bolder;
-    border: 0px solid black;
+    border: 0px solid rgb(255, 255, 255);
     border-radius: 20px;
     transition: all ease-in-out 0.3s;
     cursor: pointer;
 }
 
 .backbtn button:hover{
-    transform: scale(1.1);
+    background-color: #fff;
+    color: black;
 }
 
 /* Responsive Media Queries */

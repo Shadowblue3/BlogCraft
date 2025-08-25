@@ -2,57 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/single_post.css">
-    <link rel="icon" type="image/png" href="/image/favicon.png">
-    <title>Blog-post</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/CSS/single_post.css">
+  <link rel="icon" type="image/png" href="/image/favicon.png">
+  <title>Blog-post</title>
 </head>
 
 <body>
-    <div class="toCenter">
-        <div class="post">
-            <div class="header">
-                <h1><%= (post && post.title) ? post.title : (error || 'Post not found') %></h1>
-            </div>
-            <div class="seperator">
-            </div>
-            <div class="content">
-                <img width = "400px" src="<%= (post && post.imageUrl) ? post.imageUrl : 'https://via.placeholder.com/1200x600?text=No+Image' %>"
-                    alt="Post Image" srcset="">
-                <% if (post && post.content) { %>
-                  <p><%= post.content %></p>
-                <% } else { %>
-                  <p>Post content not available.</p>
-                <% } %>
-                <div class = "viewContainer">
-                  <span class = "views" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 15px;">Views: <%= (post && typeof post.views === 'number') ? post.views : 1 %></span>
-                </div>
-            </div>
-            <div class="footer">
-                <div class="seperator">
-                </div>
-                <div class="foot">
-                    <div class="details">
-                        <% if (post) { %>
-                          <% if (post.Author) { %>
-                            <h3>Author: <%= post.Author%></h3>
-                          <% } %>
-                          <% if (post.category) { %>
-                            <h3>Category: <%= post.category %></h3>
-                          <% } %>
-                          <% if (post.tags) { %>
-                            <h3>Tags: <%= post.tags %></h3>
-                          <% } %>
-                        <% } %>
-                    </div>
-                    <div class="backbtn">
-                        <a href="/blogs"><button>← Go back</button></a>
-                    </div>
-                </div>
-            </div>
+  <div class="toCenter">
+    <div class="post">
+      <div class="header">
+        <h1>
+          <%= (post && post.title) ? post.title : (error || 'Post not found' ) %>
+        </h1>
+      </div>
+      <div class="seperator">
+      </div>
+      <div class="content">
+        <img width="400px"
+          src="<%= (post && post.imageUrl) ? post.imageUrl : 'https://via.placeholder.com/1200x600?text=No+Image' %>"
+          alt="Post Image" srcset="">
+        <% if (post && post.content) { %>
+          <p>
+            <%= post.content %>
+
+          </p>
+
+          <% } else { %>
+            <p>Post content not available.</p>
+            <% } %>
+              <div class="viewContainer">
+
+                <span class="views"
+                  style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 15px;">Views: <%=
+                    (post && typeof post.views==='number' ) ? post.views : 1 %></span>
+              </div>
+      </div>
+      <span class="quil">
+        <img width="100px" src="/image/quil-pen.png" alt="">
+      </span>
+      <div class="footer">
+        <div class="seperator">
         </div>
+        <div class="foot">
+          <div class="details">
+            <% if (post) { %>
+              <% if (post.Author) { %>
+                <h3>Author: <%= post.Author%>
+                </h3>
+                <% } %>
+                  <% if (post.category) { %>
+                    <h3>Category: <%= post.category %>
+                    </h3>
+                    <% } %>
+                      <% if (post.tags) { %>
+                        <h3>Tags: <%= post.tags %>
+                        </h3>
+                        <% } %>
+                          <% } %>
+          </div>
+          <div class="backbtn">
+            <a href="/blogs"><button>← Go back</button></a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
 </body>
 
