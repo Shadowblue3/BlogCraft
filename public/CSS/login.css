@@ -7,23 +7,23 @@
 }
 
 body {
+    background: #000 url("/image/signup-login.jpg") no-repeat fixed;
+    background-size: cover;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: white;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    
 }
 
 .container {
-    background: white;
+    background-color: hsla(0, 0%, 0%, 0.7);
     border-radius: 25px;
-    box-shadow: 0 25px 80px rgba(245, 106, 106, 0.4);
     overflow: hidden;
     width: 100%;
     max-width: 450px;
-    border: 1px solid #e1e5e9;
     animation: slideUp 0.8s ease-out;
 }
 
@@ -40,7 +40,6 @@ body {
 }
 
 .header {
-    background: linear-gradient(135deg, #f56a6a, #e55555);
     color: white;
     padding: 40px 30px;
     text-align: center;
@@ -112,16 +111,17 @@ body {
 .welcome-back {
     text-align: center;
     margin-bottom: 30px;
+    
 }
 
 .welcome-back h2 {
-    color: #333;
+    color: white;
     font-size: 1.8em;
     margin-bottom: 8px;
 }
 
 .welcome-back p {
-    color: #666;
+    color: aliceblue;
     font-size: 1em;
 }
 
@@ -152,7 +152,7 @@ body {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #333;
+    color: #ffffff;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -174,7 +174,7 @@ body {
 
 .form-group input:focus {
     outline: none;
-    border-color: #f56a6a;
+    border-color: #ffffff;
     background: white;
     box-shadow: 0 0 0 3px rgba(245, 106, 106, 0.1);
     transform: translateY(-2px);
@@ -219,7 +219,7 @@ body {
 .remember-me label {
     font-size: 14px;
     font-weight: 400;
-    color: #666;
+    color: #c5c1c1;
     text-transform: none;
     letter-spacing: normal;
 }
@@ -229,7 +229,7 @@ body {
 }
 
 .forgot-password a {
-    color: #f56a6a;
+    color: #fff;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
@@ -237,14 +237,14 @@ body {
 }
 
 .forgot-password a:hover {
-    color: #e55555;
+    color: white;
     text-decoration: underline;
 }
 
 .submit-btn {
     width: 100%;
     padding: 15px;
-    background: linear-gradient(135deg, #f56a6a, #e55555);
+    background: hsla(0, 0%, 0%, 0.7);
     color: white;
     border: none;
     border-radius: 12px;
@@ -254,12 +254,12 @@ body {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 8px 25px rgba(245, 106, 106, 0.4);
+    transition: all ease-in-out 0.4s;
 }
 
 .submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(245, 106, 106, 0.5);
+    background-color: white;
+    color: black;
 }
 
 .submit-btn:active {
@@ -283,9 +283,9 @@ body {
 }
 
 .divider span {
-    background: white;
+    /* background: white; */
     padding: 0 20px;
-    color: #999;
+    color: #c5c1c1;
     font-size: 14px;
     font-weight: 500;
 }
@@ -297,11 +297,12 @@ body {
 }
 
 .social-btn {
+    border: 2px solid #e1e5e9;
+    color: white;
     flex: 1;
     padding: 12px;
-    border: 2px solid #e1e5e9;
     border-radius: 12px;
-    background: white;
+    background: hsla(0, 0%, 0%, 0.7);
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -312,22 +313,21 @@ body {
 }
 
 .social-btn:hover {
-    border-color: #f56a6a;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(245, 106, 106, 0.2);
+    transform: scale(0.90);
 }
 
 .signup-link {
     text-align: center;
-    color: #666;
+    color: #fffdfd;
     font-size: 14px;
 }
 
 .signup-link a {
-    color: #f56a6a;
+    color: #fff;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 900;
     margin-left: 5px;
+    font-size: 17px;
 }
 
 .signup-link a:hover {

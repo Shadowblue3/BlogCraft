@@ -6,7 +6,8 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: white;
+    background: #000 url("/image/signup-login.jpg") no-repeat fixed;
+    background-size: cover;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -15,9 +16,8 @@ body {
 }
 
 .container {
-    background: white;
+    background-color: hsla(0, 0%, 0%, 0.7);
     border-radius: 25px;
-    box-shadow: 0 25px 80px rgba(245, 106, 106, 0.4);
     overflow: hidden;
     width: 100%;
     max-width: 450px;
@@ -38,7 +38,7 @@ body {
 }
 
 .header {
-    background: linear-gradient(135deg, #f56a6a, #e55555);
+    background-color: hsla(0, 0%, 0%, 0.7);
     color: white;
     padding: 40px 30px;
     text-align: center;
@@ -103,6 +103,7 @@ body {
 }
 
 .form-container {
+    color: white;
     padding: 40px 30px;
 }
 
@@ -112,13 +113,13 @@ body {
 }
 
 .welcome-message h2 {
-    color: #333;
+    color: white;
     font-size: 1.8em;
     margin-bottom: 8px;
 }
 
 .welcome-message p {
-    color: #666;
+    color: white;
     font-size: 1em;
 }
 
@@ -131,7 +132,7 @@ body {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #333;
+    color: white;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -153,7 +154,6 @@ body {
 
 .form-group input:focus {
     outline: none;
-    border-color: #f56a6a;
     background: white;
     box-shadow: 0 0 0 3px rgba(245, 106, 106, 0.1);
     transform: translateY(-2px);
@@ -174,7 +174,7 @@ body {
 }
 
 .password-toggle:hover {
-    color: #f56a6a;
+    color: #ffffff;
 }
 
 .password-strength {
@@ -226,7 +226,7 @@ body {
 .submit-btn {
     width: 100%;
     padding: 15px;
-    background: linear-gradient(135deg, #f56a6a, #e55555);
+    background: hsla(0, 0%, 0%, 0.7);
     color: white;
     border: none;
     border-radius: 12px;
@@ -236,13 +236,12 @@ body {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 8px 25px rgba(245, 106, 106, 0.4);
     margin-bottom: 20px;
 }
 
-.submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(245, 106, 106, 0.5);
+.submit-btn:hover{
+    background-color: white;
+    color: black;
 }
 
 .submit-btn:active {
@@ -273,7 +272,6 @@ body {
 }
 
 .divider span {
-    background: white;
     padding: 0 20px;
     color: #999;
     font-size: 14px;
@@ -291,7 +289,7 @@ body {
     padding: 12px;
     border: 2px solid #e1e5e9;
     border-radius: 12px;
-    background: white;
+    background: hsla(0, 0%, 0%, 0.6);
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -299,26 +297,25 @@ body {
     justify-content: center;
     gap: 8px;
     font-weight: 500;
+    color: white;
 }
 
 .social-btn:hover {
-    border-color: #f56a6a;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(245, 106, 106, 0.2);
+    transform: scale(0.9);
 }
 
 .terms {
     font-size: 13px;
-    color: #666;
+    color: #adabab;
     text-align: center;
     line-height: 1.6;
     margin-bottom: 25px;
 }
 
 .terms a {
-    color: #f56a6a;
+    color: #ffffff;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .terms a:hover {
@@ -327,12 +324,12 @@ body {
 
 .login-link {
     text-align: center;
-    color: #666;
+    color: #adabab;
     font-size: 14px;
 }
 
 .login-link a {
-    color: #f56a6a;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     margin-left: 5px;

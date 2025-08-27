@@ -5,6 +5,11 @@
     padding: 0;
 }
 
+body{
+    background: #000 url("/image/Shelf.png") no-repeat fixed;
+    background-size: cover;
+}
+
 /*****************************************CSS for navabar****************************************/
 
 .navbar {
@@ -12,11 +17,10 @@
     align-items: center;
     margin: 5px;
     border-radius: 10px;
-    box-shadow: 2px 1px 25px #f56a6a;
     padding: 20px;
     position: sticky;
     top: 0px;
-    background-color: white;
+    background-color: hsla(0, 0%, 0%, 0.8);
     z-index: 3;
 }
 
@@ -24,6 +28,7 @@
     gap: 10px;
     font-family: "Chela One", system-ui;
     font-size: 20px;
+    color: white
 }
 
 .navigation {
@@ -42,11 +47,11 @@
     flex-direction: column;
     font-size: 18px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgba(0, 0, 0, 0.845);
+    color: white
 }
 
 .l {
-    border: 2px solid white;
+    border: 2px solid hsla(0, 0%, 0%, 0.8);
     width: 1px;
     border-radius: 20px;
     transition: all ease-in-out 0.3s;
@@ -54,7 +59,7 @@
 
 .navLinks a:hover {
     .l {
-        border: 2px solid #f56a6a;
+        border: 2px solid #fff;
         border-radius: 20px;
         width: 35px;
     }
@@ -70,16 +75,17 @@
     font-weight: bolder;
     font-size: 15px;
     color: white;
-    background-color: #f56a6a;
+    background-color: hsla(0, 0%, 0%, 0.6);
     padding: 10px;
-    border: 0px solid black;
+    border: 2px solid white;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform ease-in-out 0.3s;
+    transition: all ease-in-out 0.3s;
 }
 
 .inbtns button:hover {
-    transform: scale(1.2);
+    background-color: white;
+    color: black;
 }
 
 /*********************************************CSS for main blogs*******************************************/
@@ -95,13 +101,14 @@
 .head h1{
     /* border: 2px solid black; */
     text-align: center;
-    font-family: "Dancing Script", cursive;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 900;
     font-size: 40px;
-    background: linear-gradient(to right, white 0%, #f56a6a 50%, white 100%);
+    background: hsla(0, 0%, 0%, 0.6);
     color: white;
     padding: 10px;
-    margin: 0;
+    margin: 0px 10px 0px 10px;
+    border-radius: 10px;
 }
 
 .category-filter {
@@ -114,16 +121,16 @@
 
 .category-filter label {
     font-weight: 600;
-    color: #333;
+    color: #fff;
     font-size: 14px;
 }
 
 .category-filter select {
     padding: 8px 12px;
-    border: 2px solid #f56a6a;
+    border: 0px solid #000;
     border-radius: 8px;
-    background-color: white;
-    color: #333;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    color: #fff;
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -141,25 +148,27 @@
 }
 
 .blog-posts{
+    /* background-color: hsla(0, 0%, 0%, 0.3); */
     display: flex;
     margin-top: 50px;
     justify-content: center;
     align-items: center;
     gap: 50px;
     flex-wrap: wrap;
-    border: 2px solid #f56a6a;
+    /* border: 2px solid #f56a6a; */
     padding: 30px;
     margin: 25px 40px 0px 40px;
     border-radius: 20px;
 }
 
 .card{
+    background-color: hsla(0, 0%, 0%, 0.8);
     display: flex;
     flex-direction: column;
     gap: 20px;
     justify-content: flex-start;
     align-items: center;
-    box-shadow: 3px 5px 12px gray;
+    /* box-shadow: 3px 5px 12px gray; */
     border-radius: 30px;
     overflow: hidden;
     width: 600px;
@@ -185,8 +194,8 @@
 }
 
 .category-badge {
-    background-color: #f56a6a;
-    color: white;
+    background-color: #fff;
+    color: black;
     padding: 5px 12px;
     border-radius: 15px;
     font-size: 12px;
@@ -203,12 +212,13 @@
     margin: 0;
     font-size: 20px;
     line-height: 1.3;
+    color: #fff;
 }
 
 .card p{
     text-align: center;
     margin: 0;
-    color: #666;
+    color: aliceblue;
     line-height: 1.5;
     flex-grow: 1;
 }
@@ -225,7 +235,7 @@
 
 .author {
     font-size: 12px;
-    color: #888;
+    color: #c4c0c0;
     font-style: italic;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -237,7 +247,7 @@
 .no-posts {
     text-align: center;
     padding: 60px 20px;
-    color: #666;
+    color: #969494;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -260,22 +270,23 @@
     font-weight: bolder;
     font-size: 15px;
     color: white;
-    background-color: #f56a6a;
+    background-color: hsla(0, 0%, 0%, 0.8);
     padding: 10px;
-    border: 0px solid black;
+    border: 2px solid white;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform ease-in-out 0.3s;
+    transition: all ease-in-out 0.3s;
 }
 
 .read-more:hover {
-    transform: scale(1.2);
+    background-color: white;
+    color: black;
 }
 
 /***********************************************CSS for footer****************************************************/
 .footer {
   /* bottom: 0px; */
-  background-color: #f56a6a;
+  background-color: hsla(0, 0%, 0%, 0.6);
   padding: 30px 20px;
   margin-top: 50px;
   /* display: flex; */
@@ -550,7 +561,7 @@
     .card-footer {
         flex-direction: column;
         gap: 10px;
-        align-items: flex-start;
+        align-items: center;
     }
     
     .footer-content {
